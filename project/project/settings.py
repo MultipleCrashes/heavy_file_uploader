@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'videos',
     'crowd_sourcing',
+    'member_type',
 ]
 
 MIDDLEWARE_CLASSES = [
