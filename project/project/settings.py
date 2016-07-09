@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'register_user',
+    'user',
     'auth_layer',
     'videos',
     'crowd_sourcing',
