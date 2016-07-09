@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register_user',
+    'auth_layer',
     'videos',
     'crowd_sourcing',
     'member_type',
