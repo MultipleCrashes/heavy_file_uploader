@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'videos',
     'crowd_sourcing',
     'member_type',
+    'compressor_engine',
+    'notification_engine',
 ]
 
 MIDDLEWARE_CLASSES = [

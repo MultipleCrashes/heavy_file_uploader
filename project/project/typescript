@@ -1,0 +1,8 @@
+Script started on Sun Jul  3 17:02:26 2016
+[?1034hbash-3.2$ mkvirtuale[K[K[K[K[K[K[K[K
+mkbom        mkdep        mkdir        mkextunpack  mkfifo       mkfile       mklocale     mknod        mkpassdb     mktemp       
+bash-3.2$ mkVI[K[Kvirtualenv project
+bash: mkvirtualenv: command not found
+bash-3.2$ ex[K[Kcd[K[Kexit
+
+Script done on Sun Jul  3 17:03:33 2016
