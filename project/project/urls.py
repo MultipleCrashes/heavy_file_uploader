@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+import debug_toolbar 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
+
+from django.conf import settings
+if settings.DEBUG==True:   # means for development 
+    urlpatterns.append(url(r'^__debug__/',admin.site.urls))

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from otpauth import OtpAuth
 
 # Create your views here.
@@ -16,3 +17,7 @@ class otp:
 	def verify_OTP(random_otp_string):
 		return auth.valid_totp(random_otp_string)
 
+=======
+
+# Create your views here.
+>>>>>>> 6e2bc3eb4ba58b44c07d0ea44eef71fbb650a940
