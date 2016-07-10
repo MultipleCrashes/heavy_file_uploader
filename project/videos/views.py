@@ -1,22 +1,31 @@
 from django.shortcuts import render
-from django.db.generic import View
+from django.views.generic import View
 # Create your views here
 from .models import *
+from django.http import HttpResponse 
+import json 
 
-class Videos(View):
+class VideosView(View):
     def __init__(self):
         pass
    
-    def dispatch(self, request, *args, **kwargs):
-        pass 
+    #def dispatch(self, request, *args, **kwargs):
+    #    pass 
  
     def post(self, request):
         request_data = request.POST
+        print request_data
+        video_url = []
+        response = {}
         try:
-            Videos.objects.filter().values('video_url')
-        except Except, e:
+            response = Videos.objects.all().values('url')[0]
+            print response
+        except Exception, e:
+            print "Exception found while getting video url",str(e)
             pass          
-        pass
-   
+        return HttpResponse(json.dumps(
+                    response),content_type = 'application/json')
+        
+ 
     def get(self, request):
         pass
