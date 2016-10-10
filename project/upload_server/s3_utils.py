@@ -12,9 +12,10 @@ AWS_SECRET_ACCESS_KEY = '4YPeF5L5u6Waa57yA1dkxVKNDEdrQQfjDic4KcwK'
 
 DEFAULT_S3_UPLOAD_FILENAME ='ugmeant'
 SOURCE_STORAGE_DIR = '/home/harish/Downloads/'
-S3_BUCKET = 'https://s3-us-west-1.amazonaws.com/augmeant'
-#S3_UPLOAD_CHUNK_SIZE = 52428800
-S3_UPLOAD_CHUNK_SIZE = 524880
+
+S3_BUCKET = 'https://s3.ap-south-1.amazonaws.com/'
+S3_UPLOAD_CHUNK_SIZE = 52428800  # 5 MB 
+
 
 
 
