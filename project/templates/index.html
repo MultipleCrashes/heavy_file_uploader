@@ -1,0 +1,26 @@
+<html>
+<body>
+hey there 
+
+
+
+</body>
+
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+xhr.open('POST','http://127.0.0.1:8000/',true)
+xhr.send();
+	
+<form action="/stripe" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_y5uBRN67jEsvDc4LIW6a2XjL"
+    data-amount="999"
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+</script>
+</html>
