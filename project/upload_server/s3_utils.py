@@ -5,12 +5,13 @@ import time
 from datetime import datetime
 from boto.s3.key import Key 
 import os
+import sys
 import math
 
 AWS_ACCESS_KEY_ID = 'AKIAJSPWAOYFMZJNQFZA'
 AWS_SECRET_ACCESS_KEY = '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'
 
-DEFAULT_S3_UPLOAD_FILENAME ='ugmeant'
+DEFAULT_S3_UPLOAD_FILENAME ='augmeant.mp4'
 SOURCE_STORAGE_DIR = '/home/harish/Downloads/'
 
 S3_BUCKET = 'https://s3.ap-south-1.amazonaws.com/'
@@ -32,17 +33,26 @@ class AugmeantS3:
     def get_current_date_time(self):
         current_date_time = None
         try:
-            current_date_time = str(datetime.now())+str(int(time.time()))
+            current_date_time = str(time.strftime("%Y-%m-%d %H:%M:%S"))+str(int(time.time()))
         except Exception,e:
             print "Could not get current date time",str(e)
         return current_date_time
 
     def create_s3_file(self,source_storage_dir=SOURCE_STORAGE_DIR,
-                        S3_BUCKET='augmeant',filename='augmeant'):
+                        S3_BUCKET='augmeant',filename='augmeant.mp4'):
+        
         current_date_time = self.get_current_date_time()
-        upload_file_name = DEFAULT_S3_UPLOAD_FILENAME + current_date_time
-        source_file = source_storage_dir + filename
+        upload_file_name = str(current_date_time) + DEFAULT_S3_UPLOAD_FILENAME 
+        try:
+            os.rename(source_storage_dir+filename,
+                        source_storage_dir+upload_file_name)
+        except Exception,e:
+            print "could not rename file , exiting",str(e)
+            sys.exit(1)
+        filename = source_storage_dir+upload_file_name
+        source_file = str(filename)
         bucket_name = self.conn.get_bucket(S3_BUCKET,validate=False)
+        print "souce file",source_file
         source_size = os.stat(source_file).st_size
         chunk_size = S3_UPLOAD_CHUNK_SIZE 
         source_path = S3_BUCKET
