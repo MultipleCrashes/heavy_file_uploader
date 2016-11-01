@@ -1,5 +1,5 @@
-stripe_secret_key = 'sk_test_BQokikJOvBiI2HlWgH4olfQ2'
 import stripe 
+stripe.api_key = 'sk_test_BQokikJOvBiI2HlWgH4olfQ2'
 
 class StripeClass:
 	
@@ -13,26 +13,29 @@ class StripeClass:
     '''
     
     def generate_token(self,):
-        self.transction_token = stripe.Token.create(
+        self.transaction_token = stripe.Token.create(
                 card={"number":"4242424242424242",
                       "exp_month":12,
                       "exp_year":2016,
                       "cvc":"123"},
                 )
+	print "token generated ->",self.transaction_token
 
     def charge_card(self):
         token = self.transaction_token
 	try:
 	    charge = stripe.Charge.create(
-		        amount =1,
+		        amount =10000,
 			currency='INR',
 			source=token,
 			description='Test Charge'
 		    )
+	    print "charge response - > ",charge 
 	except stripe.error.CardError as e:
 	    print str(e) 
 
 
 if __name__=='__main__':
 	obj = StripeClass()
-	obj._charge_card()
+	obj.generate_token()
+	obj.charge_card()
