@@ -25,5 +25,9 @@ class Compressor:
             file_name, file_extension = os.path.splitext(input_file)
             output_file = file_name+'.mp4'
             print "Processng input file"
-            return_code = subprocess.call(runsr.format(input_file,output_file)
+            return_code = subprocess.call(runsr.format(input_file,output_file))
             time.sleep(5)
+
+
+    
+    
