@@ -11,5 +11,9 @@
     "url": "git@bitbucket.org:inimitableharish/production.git"
   },
   "author": "harish",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "request": "~2.78.0",
+    "serverless": "~1.1.0"
+  }
 }
