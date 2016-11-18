@@ -16,6 +16,7 @@
     "request": "~2.78.0",
     "serverless": "~1.1.0",
     "bower": "~1.8.0",
-    "uglifyjs": "~2.4.10"
+    "uglifyjs": "~2.4.10",
+    "uglify-js": "~2.7.4"
   }
 }
