@@ -27,7 +27,7 @@ var server = http.createServer(function(req,res){
 					}
 				else {
 					res.writeHead(200, {'Content-Type':'text/html'});
-					fs.createReadStream(filePath).pip(res);
+					fs.createReadStream(filePath).pipe(res);
 					}
 				});
 			}
