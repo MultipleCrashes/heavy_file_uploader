@@ -2,13 +2,25 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
 
-var url = "mongodb://localhost:27019/harish"
+var url = "mongodb://localhost:27017/harish"
 
 var dbName = "proddb";
-MongoClient.connect(url, function(err,db){
-   assert(err,null);
+
+console.log("Connecting to mongodb at ->" + url);
+
+exports.Connect = MongoClient.connect(url, function(err,db){
+   if(!err){
    console.log("Sucessfully connected to database");
-   //db.collection('proddb', function(err,collection){});
-    //collection.insertOne({"a":1});
+   var collection = db.collection(dbName);
+   db.close();    // Do not forget to close the db handle 
+   }
+   else
+	{
+   	console.log("Could not connect to mongodb database");
+	}   
  });
+
+
+
+
 
