@@ -11,7 +11,10 @@ exports.Connect = MongoClient.connect(url, function(err,db){
    if(!err){
    console.log("Sucessfully connected to database");
    var collection = db.collection(dbName);
-   console.log(collection.insertOne({"xyz":123}));
+   for (var i=0 ;i <500000; i++){
+   console.log(i);
+   console.log(collection.insertOne({"xyz":i}));
+   }
    //allDocuments = collection.find({});
 //console.log(allDocuments);
    db.close();    // Do not forget to close the db handle 
